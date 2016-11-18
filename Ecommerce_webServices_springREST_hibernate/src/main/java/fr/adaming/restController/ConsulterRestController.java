@@ -24,39 +24,38 @@ IConsulterService consulterService;
 //CRUD
 
 @RequestMapping(value="/allProduits", method=RequestMethod.GET, produces="application/json")
- public List<Produit> consulterTousLesProduits() {
+ protected List<Produit> consulterTousLesProduits() {
 	
 	return consulterService.consulterTousLesProduits();
 }
 
 @RequestMapping(value="/allCategories", method=RequestMethod.GET, produces="application/json")
-public List<Categorie> consulterToutesLesCategories() {
+protected List<Categorie> consulterToutesLesCategories() {
 	return consulterService.consulterToutesLesCategories();
 }
 
 @RequestMapping(value="/allProduitsByCategorie/{id_categ}", method=RequestMethod.GET, produces="application/json")
-public List<Produit> consulterLesProduitsParCategorie(@PathVariable("id_categ") int id_categ) {
+protected List<Produit> consulterLesProduitsParCategorie(@PathVariable("id_categ") int id_categ) {
 	
 	return consulterService.consulterLesProduitsParCategorie(id_categ);
 }
 
 @RequestMapping(value="/getProduit/{id_produit}", method=RequestMethod.GET, produces="application/json")
-public Produit consulterProduitSelectionne(@PathVariable("id_produit") int id_produit) {
+protected Produit consulterProduitSelectionne(@PathVariable("id_produit") int id_produit) {
 	
 	return consulterService.consulterProduitSelectionne(id_produit);
 }
 
 @RequestMapping(value="/ProduitsBySearch/{motCle}", method=RequestMethod.GET, produces="application/json")
-public List<Produit> chercherProduitsParMotCle(@PathVariable("motCle") String motCle) {
+protected List<Produit> chercherProduitsParMotCle(@PathVariable("motCle") String motCle) {
 	return consulterService.chercherProduitsParMotCle(motCle);
 }
 
 @RequestMapping(value="/getCategorie/{id_categorie}", method=RequestMethod.GET, produces="application/json")
-public Categorie consulterCategorieParId(@PathVariable("id_categorie") int id_categorie) {
+protected Categorie consulterCategorieParId(@PathVariable("id_categorie") int id_categorie) {
 	return consulterService.consulterCategorieParId(id_categorie);
 }
 
 
-//Service
 
 }

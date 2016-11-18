@@ -27,7 +27,6 @@ public class ClientDaoImpl implements ICommanderDao {
 	public void enregistrerClient(Client cl) {
 		Session s = sf.getCurrentSession();
 		s.save(cl);
-
 	}
 	
 	/** getters et setters */

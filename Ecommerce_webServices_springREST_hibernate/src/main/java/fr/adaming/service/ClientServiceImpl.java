@@ -8,7 +8,7 @@ import fr.adaming.model.Client;
 import fr.adaming.model.Commande;
 
 
-@Service
+@Service(value="CommanderServiceImpl")
 @Transactional
 public class ClientServiceImpl extends ConsulterServiceImpl implements ICommanderService {
 
