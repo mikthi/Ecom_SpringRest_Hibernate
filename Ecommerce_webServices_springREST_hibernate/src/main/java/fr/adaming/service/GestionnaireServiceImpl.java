@@ -10,7 +10,7 @@ import fr.adaming.dao.IEditerDao;
 import fr.adaming.model.Categorie;
 import fr.adaming.model.Produit;
 
-@Service
+@Service(value="EditerServiceImpl")
 @Transactional
 public class GestionnaireServiceImpl extends ConsulterServiceImpl implements IEditerService, Serializable{
 
