@@ -8,6 +8,7 @@ import fr.adaming.model.Client;
 import fr.adaming.model.Commande;
 @Repository
 
+
 public class ClientDaoImpl implements ICommanderDao {
 	
 	@Autowired
