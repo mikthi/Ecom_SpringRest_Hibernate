@@ -18,6 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author inti0210
  *
@@ -36,6 +38,8 @@ public class Commande implements Serializable {
 	private int id_commande;
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
+	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_client", referencedColumnName = "id_client")
 	Client client;

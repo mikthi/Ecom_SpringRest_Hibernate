@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.model.Categorie;
+import fr.adaming.model.Commande;
 import fr.adaming.model.Produit;
 import fr.adaming.service.IConsulterService;
 
@@ -21,7 +22,10 @@ public class ConsulterRestController {
 @Qualifier(value="ConsulterServiceImpl")
 IConsulterService consulterService;
 
-//CRUD
+
+
+
+
 
 @RequestMapping(value="/allProduits", method=RequestMethod.GET, produces="application/json")
  protected List<Produit> consulterTousLesProduits() {
