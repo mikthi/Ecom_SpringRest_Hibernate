@@ -1,9 +1,10 @@
 package fr.adaming.restController;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.model.Client;
@@ -17,16 +18,20 @@ public class ClientRestController extends ConsulterRestController{
 	
 	@Autowired
 	@Qualifier(value="CommanderServiceImpl")
-	ICommanderService commanderService;
+	ICommanderService clientService;
 
 
 	public void passerCommande(Commande com) {
-		commanderService.passerCommande(com);
+		clientService.passerCommande(com);
 
 	}
 
-	public void enregistrerClient(Client cl) {
-		commanderService.enregistrerClient(cl);
+	/**
+	 * Enregistrer un client
+	 */
+	@RequestMapping(value = "/saveClient", method = RequestMethod.POST, consumes = "application/json")
+	public void enregistrerClient(@RequestBody Client cl) {
+		clientService.enregistrerClient(cl);
 	}
 	
 	public void getCommande(int id_com)
