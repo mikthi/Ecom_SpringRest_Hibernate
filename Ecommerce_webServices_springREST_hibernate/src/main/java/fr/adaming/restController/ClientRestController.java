@@ -52,24 +52,13 @@ public class ClientRestController extends ConsulterRestController{
 	@RequestMapping(value="/enregistrerCommande", method=RequestMethod.POST, produces="application/json" ,consumes="application/json")
 	public void enregistrerCommande(@RequestBody Commande commande)
 	{
-		System.out.println("le client est " + commande.getClient());
-		System.out.println("retour is Exist" + commanderService.clientIsExist(commande.getClient()));
-		
-		if(commanderService.clientIsExist(commande.getClient())!=null)
-		{
+		System.out.println("client a enregistrer dans la commande " + commande.getClient() + " le nom " +commande.getClient().getNom());
 			commanderService.passerCommande(commande);
-		}
-		else
-		{
-			commanderService.enregistrerClient(commande.getClient());
-			commanderService.passerCommande(commande);
-		}
 	}
 	
 	@RequestMapping(value="/enregistrerClient", method=RequestMethod.POST, produces="application/json" ,consumes="application/json")
 	public int enregistrerClient(@RequestBody Client cl)
 	{
-
 		return commanderService.enregistrerClient(cl);
 	}
 	

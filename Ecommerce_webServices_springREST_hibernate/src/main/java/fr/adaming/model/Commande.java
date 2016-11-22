@@ -6,6 +6,8 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
+
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,10 +41,9 @@ public class Commande implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateCommande;
 	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_client", referencedColumnName = "id_client")
-	Client client;
+	private Client client;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<Integer,Integer> produitCommande;
