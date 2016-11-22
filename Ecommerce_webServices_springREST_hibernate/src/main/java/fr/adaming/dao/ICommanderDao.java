@@ -7,6 +7,7 @@ import fr.adaming.model.Commande;
 public interface ICommanderDao {
 	public void passerCommande(Commande com);
 	
-	public void enregistrerClient(Client cl);
+	public int enregistrerClient(Client cl);
+	public Client clientIsExist(Client client);
 
 }

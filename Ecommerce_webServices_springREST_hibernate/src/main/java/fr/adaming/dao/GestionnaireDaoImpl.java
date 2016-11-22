@@ -19,8 +19,10 @@ public class GestionnaireDaoImpl implements IEditerDao, Serializable{
 	private SessionFactory sf;
 
 	@Override
-	public void ajouterProduit(Produit p) {
+	public void ajouterProduit(Produit p) {		
 		Session s = sf.getCurrentSession();
+//		Categorie c=(Categorie) s.get(Categorie.class, p.getCategorie().getId_categorie());
+//		p.setCategorie(c);
 		s.save(p);
 	}
 
